@@ -14,12 +14,30 @@ export const db = new pg.Pool({
 
 const PORT = 1917;
 
+app.delete("/posts", async (req, res) => {
+  try {
+    await db.query(`DELETE FROM posts`);
+    res.status(200).json({ message: "Post deleted" });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post("/posts", async (req, res) => {
+  try {
+    let query = `INTERT INTO posts `;
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.get("/categories", async (req, res) => {
+  try {
+    let result = await db.query(`SELECT * FROM categories`);
+    res.status(200).json(result.rows);
+  } catch (err) {}
+});
+
 app.listen(PORT, () => {
   console.log(`Port currently running on Localhost:${PORT} ☉ ‿ ⚆`);
 });
-
-app.get("/", (req, res) => {});
-
-app.post("/", (req, res) => {});
-
-app.delete("/", (req, res) => {});
