@@ -25,7 +25,7 @@ app.delete("/posts", async (req, res) => {
 
 app.post("/posts", async (req, res) => {
   try {
-    let query = `INTERT INTO posts `;
+    let query = `INSERT INTO posts `;
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
